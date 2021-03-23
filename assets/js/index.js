@@ -33,7 +33,7 @@ function isEven(value){
     console.log("it's not number");
     return null;
   }
-  return value % 2 === 0 ? "even" : "odd";
+  return value % 2 === 0 ? true : false;
 }
 
 /* Task 4 */
