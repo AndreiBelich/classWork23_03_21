@@ -1,8 +1,19 @@
-
+/**
+ * 
+ * @param {number} value
+ * @returns {boolean} - return true if value is a number or false
+ */
 function isNumber(value){
-  return Number(value) ? Number(value) : null;
+  return !isNaN(value);
 }
 
+/**
+ * 
+ * @param {number} var1 
+ * @param {number} var2 
+ * @param {function} callback - function min or max
+ * @returns {undefined} - function show result for callback function
+ */
 function showResult(var1, var2, callback){
   if(isNumber(var1) && isNumber(var2)){
     console.log("Compare numbers")
@@ -18,16 +29,33 @@ function showResult(var1, var2, callback){
 }
 
 /* Task 1 function max*/
+/**
+ * 
+ * @param {number} num1 
+ * @param {number} num2 
+ * @returns {number} return maximum of two numbers
+ */
 function max(num1, num2){
   return num1 > num2 ? num1 : num2;
 }
 
 /* task 2 function min */
+/**
+ * 
+ * @param {number} num1 
+ * @param {number} num2 
+ * @returns {number} return minimum of two numbers
+ */
 function min(num1, num2){
   return num1 < num2 ? num1 : num2;
 }
 
 /* Task 3 */
+/**
+ * 
+ * @param {number} value 
+ * @returns {null | boolean} - return true if value is even number, return null if value not a number
+ */
 function isEven(value){
   if(!isNumber(value)){
     console.log("it's not a number");
@@ -37,10 +65,17 @@ function isEven(value){
 }
 
 /* Task 4 */
+/**
+ * 
+ * @param {number} a - first number
+ * @param {number} b - second number
+ * @param {number} c - third number
+ * @returns {false | null | number | [number, number]}
+ */
 function solve(a, b, c){
   if(!isNumber(a) || !isNumber(b) || !isNumber(c)){
     console.log("Wrong input");
-    return null;
+    return false;
   }
   if(a === 0){
     console.log("A === 0. It's mistake!!!");
@@ -54,7 +89,7 @@ function solve(a, b, c){
     result = null;
   }
   else if(D === 0){
-    result = (-b + Math.sqrt(D)) / (2 * a);
+    result = -b  / (2 * a);
   }
   else{
     const x1 = (-b + Math.sqrt(D)) / (2 * a);
@@ -64,6 +99,13 @@ function solve(a, b, c){
   return result;
 }
 
+/**
+ * 
+ * @param {number} a 
+ * @param {number} b 
+ * @param {number} c 
+ * @returns {number} - return discriminant for quadric equation
+ */
 function discriminant(a, b, c){
   return b ** 2 - (4 * a * c);
 }
