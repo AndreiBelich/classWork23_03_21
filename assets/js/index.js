@@ -70,10 +70,10 @@ function isEven(value){
  * @param {number} a - first number
  * @param {number} b - second number
  * @param {number} c - third number
- * @returns {false | null | number | [number, number]}
+ * @returns {false | null | [number, number]} solve a quadric equation
  */
 function solve(a, b, c){
-  if(!isNumber(a) || !isNumber(b) || !isNumber(c)){
+  if(isNaN(a - b - c)){
     console.log("Wrong input");
     return false;
   }
@@ -83,20 +83,17 @@ function solve(a, b, c){
   }
   const D = discriminant(a, b, c);
   console.log(`discriminant = ${D}`);
-  let result = 0;
   if(D < 0){
     console.log("Корней нет")
-    result = null;
+    return null;
   }
-  else if(D === 0){
-    result = -b  / (2 * a);
+  if(D === 0){
+    const x = -b  / (2 * a);
+    return [x, x];
   }
-  else{
-    const x1 = (-b + Math.sqrt(D)) / (2 * a);
-    const x2 = (-b - Math.sqrt(D)) / (2 * a);
-    result = [x1, x2];
-  }
-  return result;
+  const x1 = (-b + Math.sqrt(D)) / (2 * a);
+  const x2 = (-b - Math.sqrt(D)) / (2 * a);
+  return [x1, x2];
 }
 
 /**
